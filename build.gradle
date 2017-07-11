@@ -1,0 +1,37 @@
+buildscript {
+  repositories {
+    mavenCentral()
+  }
+
+  dependencies {
+    classpath 'org.springframework.boot:spring-boot-gradle-plugin:1.5.4.RELEASE'
+  }
+}
+apply plugin: 'java'
+apply plugin: 'groovy'
+apply plugin: 'org.springframework.boot'
+
+repositories {
+  mavenCentral()
+}
+
+//def camelVersion = '2.18.0'
+def camelVersion = '2.17.7'
+
+dependencies {
+  compile(
+    "org.apache.camel:camel-core:${camelVersion}",
+    "org.apache.camel:camel-spring:${camelVersion}",
+    "org.apache.camel:camel-spring-javaconfig:${camelVersion}",
+    "org.apache.camel:camel-jmx:${camelVersion}",
+    "org.springframework.boot:spring-boot-starter-web:1.5.4.RELEASE",
+    "org.springframework.boot:spring-boot-starter-tomcat:1.5.4.RELEASE",
+    "org.springframework:spring-jdbc:4.3.9.RELEASE",
+  )
+
+  testCompile(
+    "org.spockframework:spock-core:1.1-groovy-2.4",
+    "org.spockframework:spock-spring:1.1-groovy-2.4",
+    "org.springframework.boot:spring-boot-starter-test:1.5.4.RELEASE",
+  )
+}
